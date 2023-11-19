@@ -1,121 +1,111 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'SignUp.dart';
 
-import '../../models/route.dart';
-import '../../reposetories/auth_repository.dart';
-import '../components/custom_btn.dart';
-import '../components/custom_input_field.dart';
+void main() {
+  runApp(MyApp());
+}
 
-class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body:  SignInBody(),
+    return MaterialApp(
+      title: 'Health App Login',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: SignIn(),
     );
   }
 }
 
-class SignInBody extends StatefulWidget {
-  const SignInBody({Key? key}) : super(key: key);
-
-  @override
-  State<SignInBody> createState() => _SignInBodyState();
-}
-
-class _SignInBodyState extends State<SignInBody> {
-
-  late TextEditingController usernameController;
-  late TextEditingController passwordController;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    usernameController = TextEditingController();
-    passwordController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    usernameController.dispose();
-    passwordController.dispose();
-  }
-
-  final formKey = GlobalKey<FormState>();
-
-  bool invalid = false;
+class SignIn extends StatelessWidget {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return SingleChildScrollView(
-      child: Form(
-        key: formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  Text("to_use", style: textTheme.displaySmall,).tr(),
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/images/home.jpg',
+            fit: BoxFit.cover,
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.5), // Add a semi-transparent black overlay
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Health App',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 36.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 16),
+                TextField(
+                  controller: emailController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    labelStyle: TextStyle(color: Colors.white),
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16),
+                TextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    labelStyle: TextStyle(color: Colors.white),
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
 
-                  const SizedBox(height: 20,),
+                    String email = emailController.text;
+                    String password = passwordController.text;
+                    print('Login Button Pressed - Email: $email, Password: $password');
+                  },
+                  child: Text('Login'),
+                ),
+                SizedBox(height: 16),
+                GestureDetector(
+                  onTap: () {
 
-                  CustomInputField(title: "email".tr(),
-                    controller: usernameController,
-                    validator: (value){
-                      if(value !=null && value.length< 3){
-                        return "please_enter_a_valid_Team_name".tr();
-                      }
-                      return null;
-                    },),
-                  const SizedBox(height: 20,),
-                  CustomInputField(title: "TeamPass".tr(), obscureText: true,
-                      controller: passwordController,
-                      validator: (value){
-                        if(value !=null && value.length< 3){
-                          return "please_enter_a_valid_password".tr();
-                        }
-
-                        return null;
-                      }    ),
-                ],
-              ),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    );
+                  },
+                  child: Text(
+                    'Don\'t have an account? Register here.',
+                    style: TextStyle(
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            if(invalid)
-              Column(
-                children: [
-                  const SizedBox(height: 20,),
-                  Text("invalid_credentials".tr(), style: textTheme.displayMedium?.copyWith(color: Colors.redAccent, fontWeight: FontWeight.bold),),
-                ],
-              ),
-            const SizedBox(height: 20,),
-
-            CustomBtn(text: "Send".tr(), onPress: () {
-              if(formKey.currentState!.validate()) {
-                AuthRepo.signIn(username: usernameController.text, password: passwordController.text).then((value){
-                  context.read<RouteModel>().changeRoute("/roles");
-                  /*Navigator.of(context).pushNamedAndRemoveUntil("/roles", (predicate) => false);*/
-                }).onError((error, stackTrace){
-                  print(error);
-                  formKey.currentState!.validate();
-                  setState(() {
-                    invalid = true;
-                  });
-                });
-              }
-            },),
-
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

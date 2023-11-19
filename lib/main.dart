@@ -20,7 +20,7 @@ void main() async {
     child: EasyLocalization(
 
         supportedLocales: const [
-          Locale('ar'),
+
           Locale('fr'),
         ],
         path: 'assets/translations',

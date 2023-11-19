@@ -5,5 +5,5 @@ import 'package:flutter/material.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   "/": (context)=>const IndexPage(),
-  "/auth": (context)=>const SignIn(),
+  "/auth": (context)=> SignIn(),
 };
