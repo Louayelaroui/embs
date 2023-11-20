@@ -15,6 +15,7 @@ void main() async {
     providers: [
       ChangeNotifierProvider<RouteModel>(create: (context)=>RouteModel(pref.containsKey("token")?"/roles":"/auth")),
 
+
     ],
 
     child: EasyLocalization(
