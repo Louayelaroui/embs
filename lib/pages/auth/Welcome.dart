@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../reposetories/constants.dart';
 import '../components/custom_btn.dart';
-import '../components/custom_input_field.dart';
 import '../components/header.dart';
+import 'SignIn.dart';
+import 'SignUp.dart';
 
-
-class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+class Welcome extends StatelessWidget {
+  const Welcome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,61 +19,61 @@ class SignIn extends StatelessWidget {
           ),
 
           Positioned.fill(
-            top: MediaQuery.of(context).padding.top + 10,
+            top: MediaQuery.of(context).padding.top + 20,
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'SignIn',
+                    'Welcome',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 150),
 
                   Expanded(
+                    child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10.0),
+                            padding: const EdgeInsets.symmetric(vertical: 20.0),
                             child: Image.asset(
-                              'assets/images/SignIn.png',
-                              height: 75,
-                              width: 80,
+                              'assets/images/home.jpg',
+                              height: 300,
+                              width: 300,
                               fit: BoxFit.cover,
                             ),
                           ),
-                          CustomInputField(
-                            title: 'Email',
-                            hintTextKey: 'enter your email',
-                            inputColor: Colors.blue,
-                            hintColor: Colors.grey,
-
+                          CustomBtn(
+                            text: 'SignUp',
+                            onPress: () {
+                              Navigator.push(context,
+                                MaterialPageRoute(builder:
+                                    (context) => SignUp(),
+                                ),);
+                            },
+                            primary: true,
+                            textColors: Colors.white,
+                            buttonColor: SignUpColor,
                           ),
-
-                          CustomInputField(
-                            title: 'Password',
-                            hintTextKey: 'enter your password',
-                            inputColor: Colors.blue,
-                            hintColor: Colors.grey,
-                            obscureText: true,
-
-                          ),
-
+                          SizedBox(height: 20),
                           CustomBtn(
                             text: 'SignIn',
-                            onPress: () { },
+                            onPress: () { Navigator.push(context,
+                              MaterialPageRoute(builder:
+                                  (context) => SignIn(),
+                              ),);},
                             primary: true,
                             textColors: Colors.white,
                             buttonColor: SignInColor,
                           ),
                         ],
                       ),
-
+                    ),
                   ),
                 ],
               ),

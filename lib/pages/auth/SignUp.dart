@@ -1,122 +1,98 @@
 import 'package:flutter/material.dart';
+import '../../reposetories/constants.dart';
+import '../components/custom_btn.dart';
+import '../components/custom_input_field.dart';
+import '../components/header.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Health App Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SignUp(),
-    );
-  }
-}
 
 class SignUp extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController repeatPasswordController = TextEditingController();
+  const SignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        fit: StackFit.expand,
         children: [
-          Image.asset(
-            'assets/images/home.jpg',
-            fit: BoxFit.cover,
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.5), // Add a semi-transparent black overlay
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Health App',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 16),
-                TextField(
-                  controller: nameController,
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    labelText: 'Name',
-                    labelStyle: TextStyle(color: Colors.white),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16),
-                TextField(
-                  controller: emailController,
-                  obscureText: false,
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle: TextStyle(color: Colors.white),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16),
-                TextField(
-                  controller: passwordController,
-                  obscureText: true,
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    labelStyle: TextStyle(color: Colors.white),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16),
-                TextField(
-                  controller: repeatPasswordController,
-                  obscureText: true,
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    labelText: 'Repeat Password',
-                    labelStyle: TextStyle(color: Colors.white),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
 
-                    String email = emailController.text;
-                    String password = passwordController.text;
-                    String name = nameController.text;
-                    print('Login Button Pressed - Email: $email, Password: $password');
-                  },
-                  child: Text('Register'),
-                ),
+          Positioned.fill(
+            child: Header(),
+          ),
 
-              ],
+          Positioned.fill(
+            top: MediaQuery.of(context).padding.top + 10,
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'SignUp',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 40),
+
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          child: Image.asset(
+                            'assets/images/SignIn.png',
+                            height: 75,
+                            width: 80,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        CustomInputField(
+                          title: 'Name',
+                          hintTextKey: 'enter your name',
+                          inputColor: Colors.blue,
+                          hintColor: Colors.grey,
+
+                        ),
+                        CustomInputField(
+                          title: 'Email',
+                          hintTextKey: 'enter your email',
+                          inputColor: Colors.blue,
+                          hintColor: Colors.grey,
+
+                        ),
+
+                        CustomInputField(
+                          title: 'Password',
+                          hintTextKey: 'enter your password',
+                          inputColor: Colors.blue,
+                          hintColor: Colors.grey,
+                          obscureText: true,
+
+                        ),
+
+                        CustomInputField(
+                          title: 'Repeat Password',
+                          hintTextKey: 'Repeat Password',
+                          inputColor: Colors.blue,
+                          hintColor: Colors.grey,
+                          obscureText: true,
+
+                        ),
+
+                        CustomBtn(
+                          text: 'SignUp',
+                          onPress: () { },
+                          primary: true,
+                          textColors: Colors.white,
+                          buttonColor: SignInColor,
+                        ),
+                      ],
+                    ),
+
+                  ),
+                ],
+              ),
             ),
           ),
         ],

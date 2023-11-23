@@ -1,4 +1,5 @@
 import 'package:embs/pages/auth/SignIn.dart';
+import 'package:embs/pages/auth/Welcome.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:provider/provider.dart';
@@ -12,7 +13,7 @@ class IndexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<RouteModel>(
       builder: (context, route, child){
-        return  SignIn();
+        return  Welcome();
         // if(route.route == "/user"){
         //    return const doctor();
         // }
