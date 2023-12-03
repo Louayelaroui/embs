@@ -13,7 +13,6 @@ class Welcome extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-
           Positioned.fill(
             child: Header(),
           ),
@@ -53,7 +52,7 @@ class Welcome extends StatelessWidget {
                             onPress: () {
                               Navigator.push(context,
                                 MaterialPageRoute(builder:
-                                    (context) => SignUp(),
+                                    (context) => const SignUp(),
                                 ),);
                             },
                             primary: true,
@@ -65,7 +64,7 @@ class Welcome extends StatelessWidget {
                             text: 'SignIn',
                             onPress: () { Navigator.push(context,
                               MaterialPageRoute(builder:
-                                  (context) => SignIn(),
+                                  (context) => const SignIn(),
                               ),);},
                             primary: true,
                             textColors: Colors.white,

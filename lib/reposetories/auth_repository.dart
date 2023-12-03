@@ -58,6 +58,21 @@ class AuthRepo {
       // Additional error handling
     }
   }
+  static Future<void> signUp({required String role , required String name,required String email, required String password}) async {
+    {
+      var response = await HttpClient.post(endPoint: endPoints["signup"], body: {
+        "email": email,
+        "password": password,
+        "name":name,
+        "role":role
+      });
+
+      if (kDebugMode) {
+        print('API Response: $response');
+      }
+    }
+
+  }
 
 
   static Future<void> logOut() async {
