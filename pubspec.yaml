@@ -20,6 +20,11 @@ dependencies:
   easy_localization: ^3.0.1
   jwt_decode: ^0.3.1
   convex_bottom_bar: ^3.2.0
+  image_picker: ^1.0.4
+  image_cropper: ^3.0.3
+  file_picker: ^5.2.11
+
+
 
 dev_dependencies:
   flutter_test:

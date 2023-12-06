@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'models/User.dart';
 import 'models/route.dart';
 
 void main() async {
@@ -14,6 +15,8 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<RouteModel>(create: (context)=>RouteModel(pref.containsKey("token")?"/roles":"/auth")),
+      ChangeNotifierProvider<User>(create: (context)=>User()),
+      ChangeNotifierProvider<Users>(create: (context) => Users([])),
 
 
     ],

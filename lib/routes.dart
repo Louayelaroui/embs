@@ -1,6 +1,6 @@
 
 import 'package:embs/pages/Index%20Page/index_page.dart';
-import 'package:embs/pages/User%20View/User_Page.dart';
+import 'package:embs/pages/View/User_Page.dart';
 import 'package:embs/pages/auth/SignIn.dart';
 import 'package:embs/pages/auth/Welcome.dart';
 import 'package:flutter/material.dart';

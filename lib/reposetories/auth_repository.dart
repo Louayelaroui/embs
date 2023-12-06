@@ -3,26 +3,35 @@ import 'package:jwt_decode/jwt_decode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:embs/helper/http_client.dart';
 
+import '../models/User.dart';
+
 class AuthRepo {
   static final endPoints = {
-    "sigIn": "/api/auth/signin",
-    "sigUp": "/api/auth/signup",
+    "signIn": "/api/auth/signin",
+    "signUp": "/api/auth/signup",
+    "logOut": "/api/auth/logout",
+    "getAllUsers": "/api/auth/logout",
 
   };
-  static Future<void> signIn({required String email, required String password}) async {
+
+  static Future<User> signIn({
+    required String email,
+    required String password,
+  }) async {
     try {
-      var response = await HttpClient.post(endPoint: endPoints["sigIn"], body: {
+      var response = await HttpClient.post(endPoint: endPoints["signIn"], body: {
         "email": email,
-        "password": password
+        "password": password,
       });
 
       if (kDebugMode) {
         print('API Response: $response');
       }
 
+      User user = User.fromJson(response);
+
       var pref = await SharedPreferences.getInstance();
 
-      // Use 'token' instead of 'access_token'
       if (response.containsKey("token") && response["token"] != null) {
         String token = response["token"];
         await pref.setString("token", token);
@@ -49,37 +58,76 @@ class AuthRepo {
         if (kDebugMode) {
           print('No token found in the response');
         }
-        // Handle the case where there is no token in the response
+        // Throw an exception or handle the absence of the token as needed
+        throw Exception('No token found in the response');
       }
+
+      return user; // Ensure a meaningful return statement
     } catch (e) {
       if (kDebugMode) {
         print('Error in signIn: $e');
       }
-      // Additional error handling
+      // Handle the error accordingly, for now, throw an exception
+      throw Exception('Error in signIn: $e');
     }
   }
-  static Future<void> signUp({required String role , required String name,required String email, required String password}) async {
-    {
-      var response = await HttpClient.post(endPoint: endPoints["signup"], body: {
+
+  static Future<User> signUp({
+    required String name,
+    required String email,
+    required String password,
+    required double weight,
+    required double height,
+    required String cin,
+    required String telephone,
+    required String specialRequirements,
+    required String role,
+  }) async {
+    try {
+      var response = await HttpClient.post(endPoint: endPoints["signUp"], body: {
+        "name": name,
         "email": email,
         "password": password,
-        "name":name,
-        "role":role
+        "weight": weight,
+        "height": height,
+        "cin": cin,
+        "telephone": telephone,
+        "special_requirements": specialRequirements,
+        "role": role,
       });
+
+
 
       if (kDebugMode) {
         print('API Response: $response');
       }
+    User user = User.fromJson(response);
+
+      return user;
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error in signUp: $e');
+      }
+
+      // Handle the error accordingly, for now, throw an exception
+      throw Exception('Error in signUp: $e');
     }
-
   }
 
-
+  static Future<Users> getAllUsers() async{
+    var value = await HttpClient.get(endPoint: endPoints["getAllUsers"]);
+    return Users.fromJson(value as List);
+  }
   static Future<void> logOut() async {
-    var pref = await SharedPreferences.getInstance();
-    await pref.remove("token");
-    await pref.remove("role");
+    try {
+      await HttpClient.post(endPoint: endPoints["logOut"]);
+      var pref = await SharedPreferences.getInstance();
+      await pref.remove("token");
+      await pref.remove("role");
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error in logOut: $e');
+      }
+    }
   }
-
-
 }

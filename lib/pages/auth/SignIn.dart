@@ -105,9 +105,11 @@ class _SignInState extends State<SignIn> {
                           CustomBtn(
                             text: 'SignIn',
                             onPress: () {
+
                               if(formKey.currentState!.validate()) {
                                 AuthRepo.signIn(
                                     password: passwordController.text, email: emailController.text).then((value){
+
                                   Navigator.of(context).pushNamedAndRemoveUntil("/UserPage", (predicate) => false);
                                 }).onError((error, stackTrace){
                                   print(error);

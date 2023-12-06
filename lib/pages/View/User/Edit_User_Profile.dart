@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/route.dart';
-import '../../reposetories/auth_repository.dart';
-import 'component/Profile_widget.dart';
+import '../../../models/route.dart';
+import '../../../reposetories/auth_repository.dart';
+import '../component/Profile_widget.dart';
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 

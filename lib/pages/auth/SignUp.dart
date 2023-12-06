@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+import '../../models/User.dart';
+import '../../reposetories/auth_repository.dart';
 import '../../reposetories/constants.dart';
 import '../components/custom_btn.dart';
 import '../components/custom_input_field.dart';
 import '../components/header.dart';
+
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -13,11 +18,24 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPasswordController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
+  TextEditingController cinController = TextEditingController();
+  TextEditingController telephoneController = TextEditingController();
+  TextEditingController specialRequirementsController = TextEditingController();
 
+  String selectedRole = 'user'; // Default role is 'user'
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,45 +72,151 @@ class _SignUpState extends State<SignUp> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        CustomInputField(
-                          controller: nameController,
-                          title: 'Name',
-                          hintTextKey: 'enter your name',
-                          inputColor: Colors.blue,
-                          hintColor: Colors.grey,
+                        Form(
+                          key: formKey,
+                          child: Column(
+                            children: [
+                              CustomInputField(
+                                controller: nameController,
+                                title: 'Name',
+                                hintTextKey: 'enter your name',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                              CustomInputField(
+                                controller: emailController,
+                                title: 'Email',
+                                hintTextKey: 'enter your email',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                              CustomInputField(
+                                controller: passwordController,
+                                title: 'Password',
+                                hintTextKey: 'enter your password',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value != null && value.length < 3) {
+                                    return "please_enter_a_valid_password".tr();
+                                  }
+                                  return null;
+                                },
+                              ),
+                              CustomInputField(
+                                controller: repeatPasswordController,
+                                title: 'Repeat Password',
+                                hintTextKey: 'Repeat Password',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value != null &&
+                                      value.length < 3 &&
+                                      value != passwordController.text) {
+                                    return "please_enter_a_valid_password".tr();
+                                  }
+                                  return null;
+                                },
+                              ),
+                              CustomInputField(
+                                controller: weightController,
+                                title: 'Weight',
+                                hintTextKey: 'Enter your weight',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                              CustomInputField(
+                                controller: heightController,
+                                title: 'Height',
+                                hintTextKey: 'Enter your height',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                              CustomInputField(
+                                controller: cinController,
+                                title: 'CIN',
+                                hintTextKey: 'Enter your CIN',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                              CustomInputField(
+                                controller: telephoneController,
+                                title: 'Telephone',
+                                hintTextKey: 'Enter your telephone',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                              CustomInputField(
+                                controller: specialRequirementsController,
+                                title: 'Special Requirements',
+                                hintTextKey: 'Enter your special requirements',
+                                inputColor: Colors.blue,
+                                hintColor: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                        CustomInputField(
-                          controller: emailController,
-                          title: 'Email',
-                          hintTextKey: 'enter your email',
-                          inputColor: Colors.blue,
-                          hintColor: Colors.grey,
-                        ),
-                        CustomInputField(
-                          controller: passwordController,
-                          title: 'Password',
-                          hintTextKey: 'enter your password',
-                          inputColor: Colors.blue,
-                          hintColor: Colors.grey,
-                          obscureText: true,
-                        ),
-                        CustomInputField(
-                          controller: repeatPasswordController,
-                          title: 'Repeat Password',
-                          hintTextKey: 'Repeat Password',
-                          inputColor: Colors.blue,
-                          hintColor: Colors.grey,
-                          obscureText: true,
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Radio(
+                              value: 'user',
+                              groupValue: selectedRole,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedRole = value.toString();
+                                });
+                              },
+                            ),
+                            Text('User'),
+                            Radio(
+                              value: 'doctor',
+                              groupValue: selectedRole,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedRole = value.toString();
+                                });
+                              },
+                            ),
+                            Text('Doctor'),
+                          ],
+
                         ),
                         CustomBtn(
                           text: 'SignUp',
-                          onPress: () {
-                            signUpUser();
+                          onPress: () async {
+                            if (formKey.currentState!.validate()) {
+                              try {
+                             await AuthRepo.signUp(
+                                  role: selectedRole,
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  weight: double.parse(weightController.text),
+                                  height: double.parse(heightController.text),
+                                  cin: cinController.text ,
+                                  telephone: telephoneController.text,
+                                  specialRequirements: specialRequirementsController.text,
+                                ).then((value) =>  context.read<Users>().addUser(value)
+                             );
+                                print("user data " + "${double.parse(heightController.text)} ${double.parse(weightController.text)} ${cinController.text} ${telephoneController.text} ${specialRequirementsController.text}");
+
+                                // Add the user to the provider
+
+                              } catch (error) {
+                                // Handle the error (e.g., show a snackbar)
+                                print("Error during SignUp: $error");
+                              }
+                            }
                           },
                           primary: true,
                           textColors: Colors.white,
                           buttonColor: SignInColor,
                         ),
+
                       ],
                     ),
                   ],
@@ -103,35 +227,5 @@ class _SignUpState extends State<SignUp> {
         ],
       ),
     );
-  }
-
-  Future<void> signUpUser() async {
-    final url = 'the api endpoint';
-
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        body: {
-          'name': nameController.text,
-          'email': emailController.text,
-          'password': passwordController.text,
-        },
-      );
-
-      if (response.statusCode == 200) {
-
-        print('User signed up successfully!');
-
-      } else {
-
-        print('Error: ${response.statusCode}');
-        print('Body: ${response.body}');
-
-      }
-    } catch (error) {
-
-      print('Error: $error');
-
-    }
   }
 }
