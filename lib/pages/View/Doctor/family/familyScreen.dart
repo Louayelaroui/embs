@@ -4,14 +4,14 @@ import '../../../../models/family_data.dart';
 import '../../../components/category_item.dart';
 
 
-class CategoriesScreen extends StatelessWidget {
+class FamilyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
       padding: const EdgeInsets.all(25),
-      children: recycle_CATEGORIES
+      children: Family_Data
           .map(
-            (catData) => CategoryItem(
+            (catData) => FamilyItem(
           catData.id,
           catData.title,
           catData.color,

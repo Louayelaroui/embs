@@ -4,48 +4,48 @@ import 'family.dart';
 
 
 
-const recycle_CATEGORIES = const [
-  Category(
+const Family_Data = const [
+  Family(
     id: 'c1',
     title: 'famille elaroui ',
     color: Colors.purple,
   ),
-  Category(
+  Family(
     id: 'c2',
     title: 'famille bouassida ',
     color: Colors.red,
   ),
-  Category(
+  Family(
     id: 'c3',
     title: 'famille kamel ',
     color: Colors.orange,
   ),
-  Category(
+  Family(
     id: 'c4',
     title: 'famille boussid ',
     color: Colors.amber,
   ),
-  Category(
+  Family(
     id: 'c5',
     title: 'famille chrif ',
     color: Colors.blue,
   ),
-  Category(
+  Family(
     id: 'c6',
     title: 'famille kammoun',
     color: Colors.green,
   ),
-  Category(
+  Family(
     id: 'c7',
     title: 'famille bouraoui ',
     color: Colors.lightBlue,
   ),
-  Category(
+  Family(
     id: 'c7',
     title: 'famille mtimet ',
     color: Colors.lightBlue,
   ),
-  Category(
+  Family(
     id: 'c7',
     title: 'famille zouari ',
     color: Colors.lightBlue,

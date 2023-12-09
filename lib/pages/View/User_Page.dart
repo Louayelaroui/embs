@@ -27,7 +27,7 @@ class _UserPageState extends State<UserPage> {
   ];
 
   List<Widget> doctorWidgets = [
-    CategoriesScreen(),
+    FamilyScreen(),
     UsersPage(),
     ProfilePageDoctor(),
 
