@@ -12,19 +12,17 @@ An ERP application supported by a smart watch that connects patients and their d
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Installation](#prerequisites)
   - [Database Migration](#database-migration)
   - [Launching the Backend Server](#launching-the-backend-server)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
 These instructions will help you set up and run the project on your local machine.
 
-### Prerequisites
+### Installation
 
 Make sure you have the following installed:
 
@@ -35,14 +33,33 @@ Make sure you have the following installed:
 - [PostgreSQL 15](https://www.postgresql.org/download/)
 
 
-## Getting Started
+## Database Migration
 
 To perform database migration, use the following command:
 
 ```bash
 go run main.go --database
+
+
+
+```
+
+
+## Launching the Backend Server
+
+To perform backend server, use the following command:
+
+```bash
+
 go run main.go
 
 
 ```
 
+## Getting Started - FrontEnd
+
+To run the Flutter FrontEnd, use the following command:
+
+```bash
+flutter run
+```
