@@ -53,6 +53,4 @@ go run main.go
 ```bash
 note : In the Master branch / Backend part in the backend_last branch
 
-git clone https://github.com/Louayelaroui/embs.git     
-flutter pub get
-go get -u github.com/your-username/your-golang-repo
+
