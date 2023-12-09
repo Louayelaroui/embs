@@ -1,12 +1,13 @@
 import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:embs/pages/View/component/user_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../models/User.dart';
-import '../../../reposetories/auth_repository.dart';
-import '../../../reposetories/constants.dart';
+import '../../../../models/User.dart';
+import '../../../../reposetories/auth_repository.dart';
+import '../../../../reposetories/constants.dart';
 
 
 class UsersPage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _UsersPageState extends State<UsersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: Text(""),
         actions: [
           IconButton(
@@ -36,14 +38,6 @@ class _UsersPageState extends State<UsersPage> {
         centerTitle: true,
       ),
       body: PlayerBody(),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        foregroundColor: scaffoldBackgroundColor,
-        onPressed: () {
-          Navigator.of(context).pushNamed("/addPlayer", arguments: null);
-        },
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
@@ -92,10 +86,10 @@ class _PlayerBodyState extends State<PlayerBody> {
                   alignment: WrapAlignment.spaceEvenly,
                   runSpacing: 10,
                   children: [
-                    ...userList.map((e) => UserList(user: User(name: e), role: "Doctor")).toList(),
+                    ...userList.map((e) => UserItem(user: User(name: e))).toList(),
                     Opacity(
                       opacity: 0,
-                      child: UserList(user: User(), role: "Doctor"),
+                      child: UserItem(user: User()),
                     ),
                   ],
                 )

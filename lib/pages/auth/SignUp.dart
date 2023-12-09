@@ -173,7 +173,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                             Text('User'),
                             Radio(
-                              value: 'doctor',
+                              value: 'root',
                               groupValue: selectedRole,
                               onChanged: (value) {
                                 setState(() {
@@ -200,9 +200,12 @@ class _SignUpState extends State<SignUp> {
                                   cin: cinController.text ,
                                   telephone: telephoneController.text,
                                   specialRequirements: specialRequirementsController.text,
-                                ).then((value) =>  context.read<Users>().addUser(value)
+                                ).then((value) {
+                                  context.read<Users>().addUser(value);
+                                  Navigator.pop(context);
+
+                             }
                              );
-                                print("user data " + "${double.parse(heightController.text)} ${double.parse(weightController.text)} ${cinController.text} ${telephoneController.text} ${specialRequirementsController.text}");
 
                                 // Add the user to the provider
 

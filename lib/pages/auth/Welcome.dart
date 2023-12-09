@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../reposetories/constants.dart';
+import '../View/Doctor/UserList/UsersList.dart';
+import '../View/User_Page.dart';
 import '../components/custom_btn.dart';
 import '../components/header.dart';
 import 'SignIn.dart';
@@ -52,7 +54,8 @@ class Welcome extends StatelessWidget {
                             onPress: () {
                               Navigator.push(context,
                                 MaterialPageRoute(builder:
-                                    (context) => const SignUp(),
+                                    (context) => const
+                                    SignUp(),
                                 ),);
                             },
                             primary: true,
@@ -64,7 +67,8 @@ class Welcome extends StatelessWidget {
                             text: 'SignIn',
                             onPress: () { Navigator.push(context,
                               MaterialPageRoute(builder:
-                                  (context) => const SignIn(),
+                                  (context) => SignIn()
+                                    //SignIn(),
                               ),);},
                             primary: true,
                             textColors: Colors.white,

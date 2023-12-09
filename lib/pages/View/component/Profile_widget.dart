@@ -32,7 +32,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               children: [
                 Icon(
                   widget.icon,
-                  color: Colors.green[900],
+                  color: Colors.blue[900],
                   size: 24,
                 ),
                 const SizedBox(
@@ -41,7 +41,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 Text(
                   widget.title,
                   style: TextStyle(
-                    color:Colors.green[900],
+                    color:Colors.blue[900],
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
                   ),
@@ -50,7 +50,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: Colors.green[900],
+              color: Colors.blue[900],
               size: 15,
             )
           ],

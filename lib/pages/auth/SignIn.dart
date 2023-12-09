@@ -1,8 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
-import '../../models/route.dart';
 import '../../reposetories/auth_repository.dart';
 import '../../reposetories/constants.dart';
 import '../components/custom_btn.dart';

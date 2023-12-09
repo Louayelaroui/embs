@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../component/consultationDetails.dart';
 import '../component/custom_card_item.dart';
 
 class Consultation extends StatefulWidget {
@@ -18,15 +19,31 @@ class _ConsultationState extends State<Consultation> {
 
         child:  Column(
           children: [
-            CustomCardItem(index: 0, title: 'consulation blal',),
-            CustomCardItem(index: 1, title: 'blaaa',),
-            CustomCardItem(index: 2, title: 'blaa',),
-            CustomCardItem(index: 3, title: 'consulation blal',),
-            CustomCardItem(index: 4, title: 'blaaa',),
-            CustomCardItem(index: 5, title: 'blaa',),
-            CustomCardItem(index: 6, title: 'consulation blal',),
-            CustomCardItem(index: 7, title: 'blaaa',),
-            CustomCardItem(index: 8, title: 'blaa',),
+            CustomCardItem(index: 0, title: ' consultation family  Doctor  ',onPress:(){
+              Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => ConsultationScreen(),
+                ),
+              );
+            }),
+            CustomCardItem(index: 1, title: 'consultation Doctor AE',
+            onPress: (){
+              Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => ConsultationScreen(),
+                ),
+              );
+            },
+            ),
+            CustomCardItem(index: 2, title: 'consultation Doctor AD',),
+            CustomCardItem(index: 3, title: 'consultation Doctor AS',),
+            CustomCardItem(index: 4, title: 'consultation Doctor AE',),
+            CustomCardItem(index: 5, title: 'consultation Doctor AE',),
+            CustomCardItem(index: 6, title: 'consultation  Doctor famille ',),
+            CustomCardItem(index: 7, title: 'consultation familly Docteur ',),
+            CustomCardItem(index: 8, title: 'consultation familly Docteur ',),
           ],
 
         ),

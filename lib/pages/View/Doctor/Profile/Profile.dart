@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../models/route.dart';
-import '../../../reposetories/auth_repository.dart';
-import '../component/Profile_widget.dart';
+import '../../../../models/route.dart';
+import '../../../../reposetories/auth_repository.dart';
+import '../../../components/custom_avatar_image.dart';
+import '../../component/Profile_widget.dart';
 class ProfilePageDoctor extends StatefulWidget {
   const ProfilePageDoctor({Key? key}) : super(key: key);
 
@@ -25,23 +26,7 @@ class _ProfilePageDoctorState extends State<ProfilePageDoctor> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 160,
-                  child: const CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.white,
-
-                    child: Icon(Icons.person,size: 80,color: Colors.green,),
-                  ),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.black,
-
-                      width: 4.0,
-                    ),
-                  ),
-                ),
+                CustomAvatarImage(),
                 const SizedBox(
                   height: 6,
                 ),
@@ -64,7 +49,7 @@ class _ProfilePageDoctorState extends State<ProfilePageDoctor> {
                   ),
                 ),
                 Text(
-                  'louayelaroui@gamil.com',
+                  'Doctor@gamil.com',
                   style: TextStyle(
                     color: Colors.black,
                   ),

@@ -96,8 +96,6 @@ class AuthRepo {
         "role": role,
       });
 
-
-
       if (kDebugMode) {
         print('API Response: $response');
       }

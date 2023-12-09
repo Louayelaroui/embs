@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../models/route.dart';
 import '../../../reposetories/auth_repository.dart';
+import '../../components/custom_avatar_image.dart';
 import '../component/Profile_widget.dart';
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -25,23 +26,7 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 160,
-                  child: const CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.white,
-
-                    child: Icon(Icons.person,size: 80,color: Colors.green,),
-                  ),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.black,
-
-                      width: 4.0,
-                    ),
-                  ),
-                ),
+                CustomAvatarImage(),
                 const SizedBox(
                   height: 6,
                 ),

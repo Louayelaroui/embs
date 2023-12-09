@@ -2,11 +2,13 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Doctor View/Consultation.dart';
-import 'Doctor View/Edit_User_Profile.dart';
-import 'Doctor View/UsersList.dart';
+
+import 'Doctor/Profile/Profile.dart';
+import 'Doctor/UserList/UserDetails/user_screen.dart';
+import 'Doctor/UserList/UsersList.dart';
+import 'Doctor/family/familyScreen.dart';
 import 'User/Consultation.dart';
-import 'User/Edit_User_Profile.dart';
+import 'User/Profile.dart';
 import 'User/Real_data.dart';
 
 class UserPage extends StatefulWidget {
@@ -25,9 +27,10 @@ class _UserPageState extends State<UserPage> {
   ];
 
   List<Widget> doctorWidgets = [
-    ConsultationView(),
-    ProfilePageDoctor(),
+    CategoriesScreen(),
     UsersPage(),
+    ProfilePageDoctor(),
+
   ];
 
   @override
@@ -46,14 +49,14 @@ class _UserPageState extends State<UserPage> {
           return Text('Error: ${snapshot.error}');
         } else {
           String role = snapshot.data ?? "";
-          List<Widget> selectedWidgets = (role.toLowerCase() == 'doctor') ? doctorWidgets : userWidgets;
+          List<Widget> selectedWidgets = (role.toLowerCase() == 'root') ? doctorWidgets : userWidgets;
 
           return Scaffold(
             body: selectedWidgets[index],
             bottomNavigationBar: SizedBox(
               height: 50,
               child: ConvexAppBar(
-                backgroundColor: const Color(0xFF00a5cb),
+                backgroundColor: Colors.blue[800],
                 items: [
                   TabItem(icon: Icons.medical_information, title: 'RealDataPage'.tr()),
                   TabItem(icon: Icons.history, title: 'Consultation'.tr()),

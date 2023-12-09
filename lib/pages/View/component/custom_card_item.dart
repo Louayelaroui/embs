@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomCardItem extends StatelessWidget {
   const CustomCardItem({Key? key,
-    this.color = const Color(0xFF00a5cb),
+    this.color =  Colors.blue,
     required this.index,
     required this.title,
     this.subtitle,
@@ -57,12 +57,12 @@ class CustomCardItem extends StatelessWidget {
                               ),
                             ],
                             title: Text(
-                              'Delete_injury',
+                              'Delete_consultation',
                             ).tr(),
                             contentPadding:
                             EdgeInsets.all(20),
                             content:
-                            Text('injurycontetent').tr(),
+                            Text('contetent').tr(),
                           ));
                     },
                     icon: const Icon(Icons.delete, size: 30,color: Colors.white,),
