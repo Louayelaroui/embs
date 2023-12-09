@@ -1,6 +1,7 @@
 package realdata
 
 import (
+	"heathcare/api/app/user"
 	"heathcare/api/v1/notification"
 	"heathcare/middleware"
 	"net/http"
@@ -48,6 +49,7 @@ func (db Database) NewRealData(ctx *gin.Context) {
 
 	// init new role
 	new_realdata := Realdata{
+		UserID:         realdata.UserID,
 		HeartRate:      realdata.HeartRate,
 		StepCount:      realdata.StepCount,
 		CaloriesBurned: realdata.CaloriesBurned,
@@ -55,6 +57,11 @@ func (db Database) NewRealData(ctx *gin.Context) {
 		OxygenLevel:    realdata.OxygenLevel,
 		StressLevel:    realdata.StressLevel,
 		BloodSugar:     realdata.BloodSugar,
+	}
+
+	if exists := user.CheckUserExists(db.DB, uint(realdata.UserID)); !exists {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": "invalid user id"})
+		return
 	}
 
 	// create new role
@@ -139,4 +146,24 @@ func (db Database) DeleteAllRealData(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{"message": "All Real Data deleted successfully"})
+}
+
+func (db Database) GetRealDataOfUser(ctx *gin.Context) {
+	userID, err := strconv.Atoi(ctx.Param("id"))
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		return
+	}
+
+	if exists := user.CheckUserExists(db.DB, uint(userID)); !exists {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": "invalid user id affected"})
+		return
+	}
+	med, err := GetRealDataOfUser(db.DB, uint(userID))
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, med)
 }

@@ -6,6 +6,7 @@ import (
 
 type Realdata struct {
 	ID             uint    `gorm:"column:id;autoIncrement;primaryKey" json:"id"`
+	UserID         uint    `gorm:"column:user_id;autoIncrement;primaryKey" json:"user_id"`
 	HeartRate      int     `gorm:"column:heart_rate" json:"heart_rate"`
 	StepCount      int     `gorm:"column:step_count" json:"step_count"`
 	CaloriesBurned int     `gorm:"column:calories_burned" json:"calories_burned"`
@@ -31,4 +32,8 @@ func UpdateRealData(db *gorm.DB, realdata Realdata) error {
 
 func DeleteAllRealData(db *gorm.DB) error {
 	return db.Session(&gorm.Session{AllowGlobalUpdate: true}).Delete(&Realdata{}).Error
+}
+
+func GetRealDataOfUser(db *gorm.DB, affectedTo uint) (realdata []Realdata, err error) {
+	return realdata, db.Where("user_id = ?", affectedTo).Find(&realdata).Error
 }

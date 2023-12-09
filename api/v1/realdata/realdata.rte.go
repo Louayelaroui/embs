@@ -12,6 +12,9 @@ func RealdataRoutes(router *gin.RouterGroup, db *gorm.DB, enforcer *casbin.Enfor
 
 	baseInstance := Database{DB: db}
 	router.GET("/all", middleware.Authorize("realdata", "read", enforcer), baseInstance.GetAllRealData)
+	router.GET("/:id", middleware.Authorize("realdata", "read", enforcer), baseInstance.GetRealDataOfUser)
 	router.POST("/new", middleware.Authorize("realdata", "write", enforcer), baseInstance.NewRealData)
 	router.DELETE("/deleteall", middleware.Authorize("realdata", "write", enforcer), baseInstance.DeleteAllRealData)
 }
+
+
