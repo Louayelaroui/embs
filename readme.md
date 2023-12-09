@@ -7,7 +7,7 @@
 
 ## Description
 
-A brief description of your Flutter and Golang project. Include its purpose, features, and any other relevant information.
+An ERP application supported by a smart watch that connects patients and their doctors transmitting crucial lifesaving data.
 
 ## Table of Contents
 
@@ -36,21 +36,14 @@ Make sure you have the following installed:
 - [PostgreSQL 15](https://www.postgresql.org/download/)
 
 
+## Getting Started
 
 To perform database migration, use the following command:
+
+```bash
 go run main.go --database
-To launch the backend server, run the following command:
 go run main.go
 
 
-
-
-
-
-
-### Installation
-
-```bash
-note : In the Master branch / Backend part in the backend_last branch
-
+```
 
