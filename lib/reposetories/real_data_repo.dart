@@ -1,62 +1,67 @@
-import 'package:embs/models/realdata.dart';
 import 'package:flutter/foundation.dart';
-import 'package:jwt_decode/jwt_decode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:embs/helper/http_client.dart';
+import '../models/realdata.dart';
 
-import '../models/User.dart';
-
-class AuthRepo {
+class RealDataRepo {
   static final endPoints = {
-    "addrealdata": "/api/realdata/new",
-    "getAllrealdata":"api/realdata/all"
+    "addRealData": "/api/realdata/new",
+    "getAllRealData": "api/realdata/all"
   };
 
-
-  static Future<RealData> addRealdata({
-    required String name,
-    required String email,
-    required String password,
-    required double weight,
-    required double height,
-    required String cin,
-    required String telephone,
-    required String specialRequirements,
-    required String role,
+  static Future<RealData> addRealData({
+    required int heartRate,
+    required int stepCount,
+    required int caloriesBurned,
+    required String activityLevel,
+    required double oxygenLevel,
+    required int stressLevel,
+    required double bloodSugar,
+    required int bloodPressure,
   }) async {
     try {
-      var response = await HttpClient.post(endPoint: endPoints["signUp"], body: {
-        "name": name,
-        "email": email,
-        "password": password,
-        "weight": weight,
-        "height": height,
-        "cin": cin,
-        "telephone": telephone,
-        "special_requirements": specialRequirements,
-        "role": role,
+      var response = await HttpClient.post(endPoint: endPoints["addRealData"], body: {
+        "heart_rate": heartRate,
+        "step_count": stepCount,
+        "calories_burned": caloriesBurned,
+        "activity_level": activityLevel,
+        "oxygen_level": oxygenLevel,
+        "stress_level": stressLevel,
+        "blood_sugar": bloodSugar,
+        "blood_pressure": bloodPressure,
       });
 
       if (kDebugMode) {
         print('API Response: $response');
       }
+
+      // Assuming the response is in the same format as the RealData model
       RealData data = RealData.fromJson(response);
 
       return data;
     } catch (e) {
       if (kDebugMode) {
-        print('Error in signUp: $e');
+        print('Error in addRealData: $e');
       }
 
       // Handle the error accordingly, for now, throw an exception
-      throw Exception('Error in signUp: $e');
+      throw Exception('Error in addRealData: $e');
     }
   }
 
-  static Future<RealData> getAllRealdata() async{
-    var value = await HttpClient.get(endPoint: endPoints["getAllrealdata"]);
-    //return realdata.fromJson(value as List);
+  static Future<List<RealData>> getAllRealData() async {
+    try {
+      var value = await HttpClient.get(endPoint: endPoints["getAllRealData"]);
+      return RealDataNotifier.fromJson(value as List).users;
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error in getAllRealData: $e');
+      }
+      // Handle the error accordingly, for now, throw an exception
+      throw Exception('Error in getAllRealData: $e');
+    }
   }
+
   static Future<void> logOut() async {
     try {
       await HttpClient.post(endPoint: endPoints["logOut"]);
