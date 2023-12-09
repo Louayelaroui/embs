@@ -1,0 +1,2912 @@
+{
+	"info": {
+		"_postman_id": "2db78f4d-1c34-489d-8e91-7f51ae6b48c2",
+		"name": "/Embs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25851543",
+		"_collection_link": "https://gold-shuttle-546964.postman.co/workspace/nuitdeinfo~1046e588-a122-4c56-9e44-c938c3fe78c2/collection/25851543-2db78f4d-1c34-489d-8e91-7f51ae6b48c2?action=share&source=collection_link&creator=25851543"
+	},
+	"item": [
+		{
+			"name": "/api",
+			"item": [
+				{
+					"name": "/auth",
+					"item": [
+						{
+							"name": "/signup",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"salem\",\r\n  \"family_name\":\"bouali\",\r\n  \"email\": \"salem.bouali@example.com\",\r\n  \"password\": \"secretpassword\",\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{port}}/api/auth/signup",
+									"host": [
+										"{{host}}{{port}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/signin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"salem.boua1li@example.com\",\r\n    \"password\": \"secretpassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{port}}/api/auth/signin",
+									"host": [
+										"{{host}}{{port}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/app",
+					"item": [
+						{
+							"name": "/user",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"John\",\r\n  \"family_name\": \"Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"secretpassword\",\r\n  \"points\": 100.5,\r\n  \"role\": \"user\",\r\n  \"last_login\": \"2023-12-07T10:30:00Z\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/user/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"user",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/user/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"user",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Super Admin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/user/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"user",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"John\",\r\n  \"family_name\": \"Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"secretpassword\",\r\n  \"points\": 100.5,\r\n  \"role\": \"user\",\r\n  \"last_login\": \"2023-12-07T10:30:00Z\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/user/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/user/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/me",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/user/me",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"user",
+												"me"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "/role",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"admin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/role/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"role",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/role/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"role",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"root\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/role/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"role",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"admins\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/role/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"role",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/role/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"role",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/permission",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"role\":\"scrum master\",\r\n   \"object\":\"productbacklog\",\r\n   \"action\":\"read\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/permission/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"permission",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/permission/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"permission",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/permission/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"permission",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/permission/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"permission",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/permission/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"permission",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/exemples",
+					"item": [
+						{
+							"name": "/project",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"GESTION DU PROJET\",\r\n\t\"Description\" : \"Our project will be the ..\",\r\n\t\"Status\"    :\"to do\" ,\r\n\t\"Budget\"     : 1133 ,\r\n\t\"ManagerID\" : 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/project/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"project",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/project/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"project",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Project A\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/project/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"project",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"project 1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/project/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"project",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/app/project/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"app",
+												"project",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/statistique/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/project/statistique/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"project",
+												"statistique",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/team/project/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/project/team/project/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"project",
+												"team",
+												"project",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/team/new",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/team/:userid/:projetid",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/project/team/2/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"project",
+												"team",
+												"2",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/subtask",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"task 3\",\r\n    \"project_id\":1 ,\r\n    \"task_id\": 1,\r\n    \"description\":\"it'good hh\",\r\n    \"duration\":\"15 days\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/subtask/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"subtask",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/subtask/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"subtask",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/subtask/4",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"subtask",
+												"4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"task 3\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/subtask/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"subtask",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"task 1\",\r\n    \"project_id\":1 ,\r\n    \"task_id\": 1,\r\n    \"description\":\"it'g7ood hhg\",\r\n    \"duration\":\"85 days\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/subtask/4",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"subtask",
+												"4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/subtask/6",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"subtask",
+												"6"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/productbacklog",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"project_id\":1,\r\n    \"description\":\"hello world\",\r\n    \"priority\":\"very high\",\r\n    \"estimation\":\"2 weeks\",\r\n    \"status\":\"en cours\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"id\": 1\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{      \r\n     \"id\": 1,\r\n        \"project_id\": 1,\r\n        \"description\": \"hello world\",\r\n        \"priority\": \" high\",\r\n        \"estimation\": \"2 weeks\",\r\n        \"status\": \"en cours\"\r\n        \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/productbacklog//getbacklogbyprojectid/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"productbacklog",
+												"",
+												"getbacklogbyprojectid",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/release",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Releeaeeese 1.0\",\r\n    \"productbacklog_ids\": [4,5,6],\r\n\r\n  \"productbacklog_ids\": [4,5,6],\r\n  \"description\": \"First release of the project\",\r\n  \"deadline\": \"2023-07-15T10:00:00Z\",\r\n  \"status\": \"In progress\",\r\n  \"functionalities\": [\"Login\", \"Registration\", \"User Profile\"]\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/release/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"release",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/release/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"release",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"release 1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/release/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"release",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"name\":\"release 1\",\r\n    \"project_id\":1,\r\n    \"description\":\"hello world it's mee\",\r\n    \"managedby\":1,\r\n    \"started_at\":\"10/04/2023\",\r\n    \"finished_at\":\"30/10/2023\",\r\n    \"duration\":\"2 weeks\",\r\n    \"status\":\"en cours\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/release/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"release",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/release/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"release",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/sprint",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"sprint 1\",\r\n    \"project_id\":3,\r\n    \"release_ids\":9,\r\n    \"description\":\"hello world\",\r\n    \"started_at\":\"10/04/2023\",\r\n    \"finished_at\":\"30/10/2023\",\r\n    \"duration\":\"2 weeks\",\r\n    \"status\":\"en cours\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprint/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprint",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprint/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprint",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"sprint 1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprint/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprint",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/put",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"sprint 3\",\r\n    \"project_id\":2,\r\n    \"release_id\":1,\r\n    \"description\":\"hello world\",\r\n    \"started_at\":\"10/04/2023\",\r\n    \"finished_at\":\"30/10/2023\",\r\n    \"duration\":\"2 weeks\",\r\n    \"status\":\"en cours\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/spint/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"spint",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprint/444",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprint",
+												"444"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/issue",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"issue1\",\r\n    \"project_id\":2,\r\n    \"description\":\"j world\",\r\n    \"priority\":\"high\",\r\n    \"status\":\"en cours\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/issue/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"issue",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/issue/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"issue",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/issue/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"issue",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"title\": \"issue1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/issue/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"issue",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":2,\r\n    \"title\":\"issue11111\",\r\n    \"project_id\":2,\r\n    \"description\":\"j worljjd\",\r\n    \"priority\":\"high\",\r\n    \"status\":\"en cours\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/issue/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"issue",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/issue/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"issue",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/comment",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/upload/:id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/files/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/files/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}",
+											"host": [
+												"{{host}}{{port}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/files/all/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/replies",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \r\n    \"comment_id\": 1,\r\n    \"content\": \"This is a reply to the comment.\",\r\n    \"project_id\": 1,\r\n    \"created_by\": 1\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/replies/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"replies",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/upload/:id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/files/replies/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/replies/upload/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"replies",
+												"upload",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/files/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}",
+											"host": [
+												"{{host}}{{port}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/files/all/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/files",
+							"item": [
+								{
+									"name": "/upload/:id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/download/:fileName/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/notification",
+							"item": [
+								{
+									"name": "/all/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/all/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"all",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/isread/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":2\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/isread/2",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"isread",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/noread/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/noread/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"noread",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/archived/:id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/archived/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"archived",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/archived/all/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/archived/all/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"archived",
+												"all",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/Team",
+							"item": [
+								{
+									"name": "/New",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/team/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"team",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/team/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"team",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n        \"id\":1,\r\n        \"user_id\": 1,\r\n        \"projet_id\": 5,\r\n        \"role\": \"developer\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/team/upadate",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"team",
+												"upadate"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/Sprintbacklog",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Sprint 1\",\r\n    \"description\": \"Implement login feature\",\r\n    \"tasks\": [\"Design login UI\", \"Implement login API\", \"Write tests\"],\r\n    \"startdate\": \"2023-05-10T00:00:00Z\",\r\n    \"enddate\": \"2023-05-17T00:00:00Z\",\r\n    \"completed\": false\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprintbacklog/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprintbacklog",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprintbacklog/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprintbacklog",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprintbacklog/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprintbacklog",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/upadte",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"id\":6,\r\n    \"name\": \"Sprint 6\",\r\n    \"description\": \"Implement login feature and signup\",\r\n    \"tasks\": [\"Design login UI\", \"Implement login API\", \"Write tests\"],\r\n    \"startdate\": \"2023-05-10T00:00:00Z\",\r\n    \"enddate\": \"2023-05-17T00:00:00Z\",\r\n    \"completed\": false\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/sprintbacklog/update",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"sprintbacklog",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/reset",
+							"item": [
+								{
+									"name": "/resetpassword",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/userstories",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"title\": \"Sample Title\",\r\n  \"story\": \"Sample Story\",\r\n  \"status\": \"pending\",\r\n  \"productbacklog_id\": 0\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/userstory/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"userstory",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/userstory/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"userstory",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/userstory/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"userstory",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"title\": \"Sample Title\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/userstory/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"userstory",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"title\": \"Sample Title\",\r\n  \"story\": \"Sample Story to do\",\r\n  \"status\": \"pending\",\r\n  \"productbacklog_id\": 1\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/userstory/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"userstory",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/userstory/1",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"userstory",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/scrumtask",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/scrumtask/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scrumtask",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Task 2\",\r\n  \"project_id\": 1,\r\n  \"description\": \"This is the description of Task 1 a\",\r\n  \"duration\": \"2 hours\",\r\n  \"created_by\": 1\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/scrumtask/search",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scrumtask",
+												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/scrumtask/update",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scrumtask",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/scrumtask/5",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scrumtask",
+												"5"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "board",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/card",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/list",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/v1",
+					"item": [
+						{
+							"name": "/realdata",
+							"item": [
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/realdata/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"realdata",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"heart_rate\": 60,\r\n  \"step_count\": 10000,\r\n  \"calories_burned\": 500,\r\n  \"activity_level\": \"Moderate\",\r\n  \"oxygen_level\": 98.5,\r\n  \"stress_level\": 3,\r\n  \"blood_sugar\": 90.5,\r\n  \"blood_pressure\":140\r\n\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/realdata/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"realdata",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/deleteall",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/realdata/deleteall",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"realdata",
+												"deleteall"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/realdata/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"realdata",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/notification",
+							"item": [
+								{
+									"name": "/user/:id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 22,\r\n  \"families\": [\r\n    {\r\n      \"id\": 1,\r\n      \"user_id\": 66,\r\n      \"information_medicale_id\": 3,\r\n      \"role\": \"Parent\",\r\n      \"created_at\": \"2023-01-01T12:00:00Z\",\r\n      \"updated_at\": \"2023-01-01T12:00:00Z\",\r\n      \"deleted_at\": null\r\n    },\r\n       {\r\n      \"id\": 2,\r\n      \"user_id\": 66,\r\n      \"information_medicale_id\": 3,\r\n      \"role\": \"child\",\r\n      \"created_at\": \"2023-01-01T12:00:00Z\",\r\n      \"updated_at\": \"2023-01-01T12:00:00Z\",\r\n      \"deleted_at\": null\r\n    },\r\n       {\r\n      \"id\": 3,\r\n      \"user_id\": 66,\r\n      \"information_medicale_id\": 3,\r\n      \"role\": \"child\",\r\n      \"created_at\": \"2023-01-01T12:00:00Z\",\r\n      \"updated_at\": \"2023-01-01T12:00:00Z\",\r\n      \"deleted_at\": null\r\n    }\r\n  ],\r\n  \"visit_date\": [\r\n    {\r\n      \"ID\": \"1\", /* Replace with the actual ID value */\r\n      \"user_id\": 66,\r\n      \"visit_date\": \"2023-01-01\"\r\n    },\r\n      {\r\n      \"ID\": \"2\", /* Replace with the actual ID value */\r\n      \"user_id\": 66,\r\n      \"visit_date\": \"2023-01-01\"\r\n    },\r\n      {\r\n      \"ID\": \"3\", /* Replace with the actual ID value */\r\n      \"user_id\": 66,\r\n      \"visit_date\": \"2023-01-01\"\r\n    }\r\n  ],\r\n  \"created_at\": \"2023-01-01T12:00:00Z\",\r\n  \"updated_at\": \"2023-01-01T12:00:00Z\",\r\n  \"deleted_at\": null\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/doctor/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"doctor",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/notification/all",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"notification",
+												"all"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/medicament",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"affected_to\": 1,\r\n    \"name\": \"Sample Medicament\",\r\n    \"description\": \"This is a sample medicament description.\",\r\n    \"manufacturer\": \"Sample Manufacturer\",\r\n    \"dosage\": \"10mg\",\r\n    \"expiration\": \"2023-12-31\",\r\n    \"affected_at\": \"2023-01-01T12:00:00Z\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/medicament/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"medicament",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/:id",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/consulation",
+							"item": [
+								{
+									"name": "/new",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"affected_to\": 1,\r\n  \"doctor_id\": 1,\r\n  \"date_time\": \"2023-12-09T15:30:00Z\",\r\n  \"comment\": \"Regular checkup\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/consultation/new",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"consultation",
+												"new"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/user/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}{{port}}/api/v1/consultation/user/:id",
+											"host": [
+												"{{host}}{{port}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"consultation",
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/doctor/all",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDIzMzE3OTAsImlhdCI6MTcwMjE1ODk5MCwicm9sZV9uYW1lIjoicm9vdCIsInVzZXJfaWQiOjJ9.I-7Av2v7k-tkaN1gMNp059S5CMZ_I3TVDQVmdoqRaDM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "127.0.0.1",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": ":8080",
+			"type": "string"
+		}
+	]
+}

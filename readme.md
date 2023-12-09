@@ -69,3 +69,7 @@ flutter run
 Thank you for considering contributing to this project! Whether you're fixing a bug, improving an existing feature, or adding a new one, your contributions are welcome.
 
 Fork the repository to your GitHub account.
+
+
+### Acknowledgments
+
