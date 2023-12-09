@@ -16,7 +16,6 @@ An ERP application supported by a smart watch that connects patients and their d
   - [Installation](#installation)
   - [Database Migration](#database-migration)
   - [Launching the Backend Server](#launching-the-backend-server)
-- [Folder Structure](#folder-structure)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
