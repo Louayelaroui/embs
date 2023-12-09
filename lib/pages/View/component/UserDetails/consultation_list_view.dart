@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../models/category.dart';
+import '../../../../models/consultation.dart';
 import '../../../../reposetories/constants.dart';
 
 class ConsultationListView extends StatelessWidget {

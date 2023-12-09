@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../models/family_data.dart';
-import '../../../components/category_item.dart';
+import '../../../components/family_item.dart';
 
 
 class FamilyScreen extends StatelessWidget {
